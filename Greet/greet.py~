@@ -2,7 +2,12 @@ import uuid
 import MySQLdb
 import _mysql
 
-def greet():
+import IRC_Functions.irc_functions as irc_functions
+
+def greet(ircsock, channel):
+    irc_functions.send_message(ircsock, channel, "Sup!")
+
+def greet_2():
     name = get_name()
     greeting ='"Hello '
     greeting += name
@@ -16,6 +21,7 @@ def get_mac():
 #attempts to get the user's name from the acquaintances table
 def get_name():
     mac = get_mac()
+	#password censored for security reasons
     db = MySQLdb.connect("localhost","root","*****","elric_db")
     cursor = db.cursor(MySQLdb.cursors.DictCursor)
     sql = "SELECT firstName, lastName FROM acquaintances WHERE id = '%s';" % mac

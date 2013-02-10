@@ -22,13 +22,13 @@ irc_msg = ""
 #this loops receives the messages from the server and analyzes them
 #TODO add parser when irc_msg contains PRIVMSG, this is where the AI aspect of ELRIC will come into play, move the "QUIT" to be part of this AI
 while (irc_msg.find("get outta here") == -1):
-    irc_msg = ircsock.recv(2048) # receives messages from the server
-    irc_msg = irc_msg.strip('\n\r') # strips the extra characters for readability
-    print(irc_msg) # prints the server messages to the console
-    if irc_msg.find('Welcome to the Epic-Chat IRC Network') != -1: # this allows ELRIC to know when it has connected to the server and can join the channel
-        irc_functions.join_channel(ircsock, channel) # join the channel
+    irc_msg = ircsock.recv(2048)
+    irc_msg = irc_msg.strip('\n\r')
+    print(irc_msg)
+    if irc_msg.find('Welcome to the Epic-Chat IRC Network') != -1:
+        irc_functions.join_channel(ircsock, channel)
 
-    if irc_msg.find("PING :") != -1: # responds to server PINGs so ELRIC is not kicked
+    if irc_msg.find("PING :") != -1:
         irc_functions.ping()
 
 ircsock.send ( 'QUIT\r\n' )

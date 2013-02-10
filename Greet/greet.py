@@ -2,7 +2,14 @@ import uuid
 import MySQLdb
 import _mysql
 
-def greet():
+import IRC_Functions.irc_functions as irc_functions
+
+
+#TODO make this all work with IRC ELRIC
+def greet(ircsock, channel):
+    irc_functions.send_message(ircsock, channel, "Sup!")
+
+def greet_2():
     name = get_name()
     greeting ='"Hello '
     greeting += name

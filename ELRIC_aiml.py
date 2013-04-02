@@ -6,12 +6,11 @@ import aiml
 import random
 
 #import other ELRIC classes
-import Greet.greet as greet
-import IRC_Functions.irc_functions as irc_functions
+import Helpers.irc_functions as irc_functions
 
 def main():
     # define class variables
-    server = "irc.epic-chat.net" # the IRC server
+    server = "irc.aluci.ca" # the IRC server
     channel = "#LambdaTest" # the channel within that server
     bot_nick = "Elric" # the name (nick) that the bot will use within the server
     ircsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -60,7 +59,7 @@ def main():
         irc_msg = ircsock.recv(2048) # receives messages from the server
         irc_msg = irc_msg.strip('\n\r') # strips the extra characters for readability
         print(irc_msg) # prints the server messages to the console
-        if irc_msg.find('Welcome to the Epic-Chat IRC Network') != -1: # this allows ELRIC to know when it has connected to the server and can join the channel
+        if irc_msg.find('Welcome to Alucica') != -1: # this allows ELRIC to know when it has connected to the server and can join the channel
             irc_functions.join_channel(ircsock, channel) # join the channel
     
         elif irc_msg.find("PING :") != -1: # responds to server PINGs so ELRIC is not kicked

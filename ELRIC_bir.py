@@ -9,7 +9,7 @@ import Helpers.irc_functions as irc_functions
 import Helpers.text_functions as text_functions
 
 
-COMMON_WORDS = ["a", "and", "the", "some", "if", "of", "or", "to", "is", "it", "it's", "its", "he", "she", "they", "we", "you", "us", "his", "hers", "theirs", "ours", "yours", "her", "their", "our", "your", "he's", "he'll", "she's", "she'll", "they're", "they'll", "they've", "we're", "we'll", "we've", "you're", "you'll", "you've", "was", "were", "am", "are", "seem", "be", "will", "been", "has", "have", "had", "so", "there", "who", "up", "what", "why", "who", "where", "when", "on", "i", "my", "in", "used", "could", "at", "get", "k", "y", "u", "do", "what's", "what're", "this"] 
+COMMON_WORDS = ["a", "and", "the", "some", "if", "of", "or", "to", "is", "it", "it's", "its", "he", "she", "they", "we", "you", "us", "his", "hers", "theirs", "ours", "yours", "her", "their", "our", "your", "he's", "he'll", "she's", "she'll", "they're", "they'll", "they've", "we're", "we'll", "we've", "you're", "you'll", "you've", "was", "were", "am", "are", "seem", "be", "will", "been", "has", "have", "had", "so", "there", "who", "what", "why", "who", "where", "when", "on", "i", "my", "in", "used", "could", "at", "get", "k", "y", "u", "do", "what's", "what're", "this"] 
 PUNCTUATION = ".,/:;-!?*&"
 
 def information_retrieval(message, bot_nick):
@@ -17,15 +17,22 @@ def information_retrieval(message, bot_nick):
     message = text_functions.remove_items_from_string(message, PUNCTUATION)
     original_keywords = message.lower().split() #there is a difference between keywords and original keywords because all the original keywords are used to narrow down the matches to get a single response
     keywords = text_functions.remove_items_from_list(original_keywords, COMMON_WORDS)
-    keyword = get_keyword(keywords)
-    keyword_matches = get_initial_keyword_matches(keyword)
+    if len(keywords) == 0:
+        return get_random_confused_response()[0][random.randint(0,1)]
+    
+    keyword_matches = get_random_confused_response()
+    loop_count = 0
+    while len(keyword_matches) == 1 and loop_count < 50:
+        keyword = get_keyword(keywords)
+        keyword_matches = get_initial_keyword_matches(keyword)
+        loop_count += 1
     final_keyword_matches = get_final_keyword_matches(keyword_matches, original_keywords)
-    match = final_keyword_matches[random.randint(0, len(final_keyword_matches) - 1)][1]
+    match = final_keyword_matches[random.randint(0, len(final_keyword_matches) - 1)][random.randint(0, 1)]
     #return "The keyword ~%s~ found the match ~%s~ with %d matching words" % (keyword, match, matching_words_max)
     return match
 
 def get_initial_keyword_matches(keyword):
-    keyword_matches = [["huh?", "huh?"]]
+    keyword_matches = get_random_confused_response()
     loop_count = 0
     while len(keyword_matches) == 1 and loop_count < 100: #will look through 100 random files for the randomly selected keyword before giving up
         log_file_index = random.randint(1, 666) #chooses between the log files
@@ -69,3 +76,27 @@ def get_final_keyword_matches(keyword_matches, original_keywords):
 def get_keyword(keywords):
     keyword = keywords[random.randint(0, (len(keywords) - 1))]
     return keyword
+
+def get_random_confused_response():
+    decision = random.randint(0, 10)
+    if decision == 1:
+        response = [["o.o", "O.o"]]
+    elif decision == 2:
+        response = [["hm", ":|"]]
+    elif decision == 3:
+        response = [["?", ":3"]]
+    elif decision == 4:
+        response = [["huh", "wtf"]]
+    elif decision == 5:
+        response = [["heh", "huh?"]]
+    elif decision == 6:
+        response = [["oh my...", "wut"]]
+    elif decision == 7:
+        response = [["ok", "sorry"]]
+    elif decision == 8:
+        response = [["fuck", "damn"]]
+    elif decision == 9:
+        response = [["whatever", "I'm confused"]]
+    else:
+        response = [["blech", "/me twiddles thumbs"]]
+    return response

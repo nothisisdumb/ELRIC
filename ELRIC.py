@@ -2,17 +2,44 @@
 # Import needed classes
 import socket
 import time
+import aiml
 import random
 
 #import other ELRIC classes
 import Helpers.irc_functions as irc_functions
-import ELRIC_ir
+import ELRIC_bir as bir
 
 def main():# define class variables
     server = "irc.aluci.ca" # the IRC server
-    channel = "#LambdaTest" # the channel within that server
+    channel = "#spyrochat" # the channel within that server
     bot_nick = "Elric" # the name (nick) that the bot will use within the server
     ircsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+    #set up the PyAIML Kernel
+    k = aiml.Kernel()
+    k.learn("AIML/std-brain.aiml")
+    k.learn("AIML/std-65percent.aiml")
+    k.learn("AIML/std-atomic.aiml")
+    k.learn("AIML/std-dictionary.aiml")
+    k.learn("AIML/std-geography.aiml")
+    k.learn("AIML/std-german.aiml")
+    k.learn("AIML/std-gossip.aiml")
+    k.learn("AIML/std-hello.aiml")
+    k.learn("AIML/std-inactivity.aiml")
+    k.learn("AIML/std-inventions.aiml")
+    k.learn("AIML/std-knowledge.aiml")
+    k.learn("AIML/std-lizards.aiml")
+    k.learn("AIML/std-login.aiml")
+    k.learn("AIML/std-numbers.aiml")
+    k.learn("AIML/std-poltitics.aiml")
+    k.learn("AIML/std-religion.aiml")
+    k.learn("AIML/std-sales.aiml")
+    k.learn("AIML/std-sextalk.aiml")
+    k.learn("AIML/std-sports.aiml")
+    k.learn("AIML/std-that.aiml")
+    k.learn("AIML/std-yesno.aiml")
+
+    k.setBotPredicate("name", bot_nick)
 
     # connect to the server and register nick
     ircsock.connect((server, 6667))
@@ -43,17 +70,21 @@ def main():# define class variables
                     input_nick = input_nick.replace(":", "")
                     user_input = message.lower()
                     print("%s said: %s" % (input_nick, user_input))
-                    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                    #TODO This is where the responses go
-                    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                    response = ELRIC_ir.information_retrieval(user_input, bot_nick)
-                    #type_time(response)
-                    ircsock.send("PRIVMSG "+ channel + " :" + response + "\n")
+                    response = k.respond(user_input)
+                    if response == "" or response == "huh?":
+                        response = bir.information_retrieval(user_input, bot_nick)
+                    type_time(response)
+                    response = ":" + response
+                    if response.startswith(':/me'):
+                        response = response.replace(':/me', '\001ACTION')
+                        response += "\001"
+                    print response
+                    irc_functions.send_message(ircsock, channel, response)
     
     ircsock.send ( 'QUIT\r\n' )
 
+def type_time(response):
+    time.sleep(len(response) / 4)
+
 if __name__ == '__main__':
     main()
-
-def type_time(response):
-    time.sleep(len(response) / 8)

@@ -22,7 +22,7 @@ def information_retrieval(message, bot_nick):
     
     keyword_matches = get_random_confused_response()
     loop_count = 0
-    while len(keyword_matches) == 1 and loop_count < 50:
+    while len(keyword_matches) == 1 and loop_count < 10:
         keyword = get_keyword(keywords)
         keyword_matches = get_initial_keyword_matches(keyword)
         loop_count += 1
@@ -34,7 +34,7 @@ def information_retrieval(message, bot_nick):
 def get_initial_keyword_matches(keyword):
     keyword_matches = get_random_confused_response()
     loop_count = 0
-    while len(keyword_matches) == 1 and loop_count < 100: #will look through 100 random files for the randomly selected keyword before giving up
+    while len(keyword_matches) == 1 and loop_count < 75: #will look through 100 random files for the randomly selected keyword before giving up
         log_file_index = random.randint(1, 666) #chooses between the log files
         if log_file_index > 150:
             log_file_index += 162

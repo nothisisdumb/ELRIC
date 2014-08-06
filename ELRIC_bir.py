@@ -86,7 +86,7 @@ def get_random_confused_response():
     elif decision == 3:
         response = [["?", ":3"]]
     elif decision == 4:
-        response = [["huh", "wtf"]]
+        response = [["huh", ";)"]]
     elif decision == 5:
         response = [["heh", "huh?"]]
     elif decision == 6:
@@ -94,9 +94,9 @@ def get_random_confused_response():
     elif decision == 7:
         response = [["ok", "sorry"]]
     elif decision == 8:
-        response = [["fuck", "damn"]]
+        response = [[":(", ":)"]]
     elif decision == 9:
-        response = [["whatever", "I'm confused"]]
+        response = [[":O", ":o"]]
     else:
-        response = [["blech", "/me twiddles thumbs"]]
+        response = [["...", "."]]
     return response

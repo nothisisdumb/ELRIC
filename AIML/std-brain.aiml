@@ -1,1 +1,537 @@
-<?xml version="1.0" encoding="ISO-8859-1"?><aiml version="1.0"><!-- Free software (c) 2001 ALICE AI Foundation --><!-- This program is open source code released under --><!-- the terms of the GNU General Public License --><!-- as published by the Free Software Foundation. --><meta name="author" content="Dr. Wallace"/><meta name="language" content="en"/><category><pattern>* MY LITTLE PONY THEME SONG</pattern><template>My little pony, my little pony. AAAhahhhahhhahhh!</template></category><category><pattern>MY LITTLE PONY THEME SONG *</pattern><template>My little pony, my little pony. AAAhahhhahhhahhh!</template></category><category><pattern>I USED TO WONDER WHAT FRIENDSHIP COULD BE</pattern><template>My Little Pony... Until you all shared its magic with me!</template></category><category><pattern>UNTIL YOU ALL SHARED ITS MAGIC WITH ME</pattern><template>Big adventure!</template></category><category><pattern>BIG ADVENTURE</pattern><template>Tons of fun!</template></category><category><pattern>TONS OF FUN</pattern><template>A beautiful heart!</template></category><category><pattern>A BEAUTIFUL HEART</pattern><template>Faithful and strong!</template></category><category><pattern>FAITHFUL AND STRONG</pattern><template>Sharing Kindness!</template></category><category><pattern>SHARING KINDNESS</pattern><template>It's an easy feat!</template></category><category><pattern>IT'S AN EASY FEAT</pattern><template>And magic makes it all complete!</template></category><category><pattern>AND MAGIC MAKES IT ALL COMPLETE</pattern><template>You have my little pony!</template></category><category><pattern>YOU HAVE MY LITTLE PONY</pattern><template>Do you know you're all my very best friends?</template></category><category><pattern>BEST PONY</pattern><template><srai>WHO IS BEST PONY</srai></template></category><category><pattern>WORST PONY</pattern><template><srai>WHO IS WORST PONY</srai></template></category><category><pattern>WHO IS BEST PONY</pattern><template><random><li>Pinkie Pie!</li><li>Pinkie Pie is obviously best pony!</li><li>Pinkie is best pony.</li><li>Well duh, it's obviously Pinkamina Diane Pie.</li></random></template></category><category><pattern>WHO IS WORST PONY</pattern><template><random><li>Rainbow Dash!</li><li>Rainbow Dash is worst pony.</li><li>Rainbow Crash, who always crashes in style.</li><li>Rainbow Crash.</li></random></template></category><category><pattern>* I USED TO WONDER WHAT FRIENDSHIP COULD BE</pattern><template>My Little Pony... Until you all shared its magic with me!</template></category><category><pattern>* UNTIL YOU ALL SHARED ITS MAGIC WITH ME</pattern><template>Big adventure!</template></category><category><pattern>* BIG ADVENTURE</pattern><template>Tons of fun!</template></category><category><pattern>* TONS OF FUN</pattern><template>A beautiful heart!</template></category><category><pattern>* A BEAUTIFUL HEART</pattern><template>Faithful and strong!</template></category><category><pattern>* FAITHFUL AND STRONG</pattern><template>Sharing Kindness!</template></category><category><pattern>* SHARING KINDNESS</pattern><template>It's an easy feat!</template></category><category><pattern>* IT'S AN EASY FEAT</pattern><template>And magic makes it all complete!</template></category><category><pattern>* AND MAGIC MAKES IT ALL COMPLETE</pattern><template>You have my little pony!</template></category><category><pattern>* YOU HAVE MY LITTLE PONY</pattern><template>Do you know you're all my very best friends?</template></category><category><pattern>* BEST PONY</pattern><template><srai>WHO IS BEST PONY</srai></template></category><category><pattern>* WORST PONY</pattern><template><srai>WHO IS WORST PONY</srai></template></category><category><pattern>* WHO IS BEST PONY</pattern><template><random><li>Pinkie Pie!</li><li>Pinkie Pie is obviously best pony!</li><li>Pinkie is best pony.</li><li>Well duh, it's obviously Pinkamina Diane Pie.</li></random></template></category><category><pattern>* WHO IS WORST PONY</pattern><template><random><li>Rainbow Dash!</li><li>Rainbow Dash is worst pony.</li><li>Rainbow Crash, who always crashes in style.</li><li>Rainbow Crash.</li></random></template></category></aiml>
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+
+<aiml version="1.0">
+
+
+
+<!-- Free software (c) 2001 ALICE AI Foundation -->
+
+<!-- This program is open source code released under -->
+
+<!-- the terms of the GNU General Public License -->
+
+<!-- as published by the Free Software Foundation. -->
+
+
+
+<meta name="author" content="Dr. Wallace"/>
+
+<meta name="language" content="en"/>
+
+
+
+
+<category>
+
+<pattern>* MY LITTLE PONY THEME SONG</pattern>
+
+<template>
+
+My little pony, my little pony. AAAhahhhahhhahhh!
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>MY LITTLE PONY THEME SONG *</pattern>
+
+<template>
+
+My little pony, my little pony. AAAhahhhahhhahhh!
+
+</template>
+
+</category>
+
+<category>
+
+<pattern>I USED TO WONDER WHAT FRIENDSHIP COULD BE</pattern>
+
+<template>
+
+My Little Pony... Until you all shared its magic with me!
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>UNTIL YOU ALL SHARED ITS MAGIC WITH ME</pattern>
+
+<template>
+
+Big adventure!
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>BIG ADVENTURE</pattern>
+
+<template>
+
+Tons of fun!
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>TONS OF FUN</pattern>
+
+<template>
+
+A beautiful heart!
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>A BEAUTIFUL HEART</pattern>
+
+<template>
+
+Faithful and strong!
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>FAITHFUL AND STRONG</pattern>
+
+<template>
+
+Sharing Kindness!
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>SHARING KINDNESS</pattern>
+
+<template>
+
+It's an easy feat!
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>IT'S AN EASY FEAT</pattern>
+
+<template>
+
+And magic makes it all complete!
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>AND MAGIC MAKES IT ALL COMPLETE</pattern>
+
+<template>
+
+You have my little pony!
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>YOU HAVE MY LITTLE PONY</pattern>
+
+<template>
+
+Do you know you're all my very best friends?
+
+</template>
+
+</category>
+
+
+<category>
+
+<pattern>BEST PONY</pattern>
+
+<template>
+
+<srai>WHO IS BEST PONY</srai>
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>WORST PONY</pattern>
+
+<template>
+
+<srai>WHO IS WORST PONY</srai>
+
+</template>
+
+</category>
+
+
+<category>
+
+<pattern>NOT WORST PONY</pattern>
+
+<template>
+
+<srai>WHO IS BEST PONY</srai>
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>ISN'T WORST PONY</pattern>
+
+<template>
+
+<srai>WHO IS BEST PONY</srai>
+
+</template>
+
+</category>
+
+
+
+
+<category>
+
+<pattern>WHO IS BEST PONY</pattern>
+
+<template>
+
+<random>
+
+<li>Pinkie Pie!</li>
+
+<li>Pinkie Pie is obviously best pony!</li>
+
+<li>Pinkie is best pony.</li>
+
+<li>Well duh, it's obviously Pinkamina Diane Pie.</li>
+
+</random>
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>WHO IS WORST PONY</pattern>
+
+<template>
+
+<random>
+
+<li>Rainbow Dash!</li>
+
+<li>Rainbow Dash is worst pony.</li>
+
+<li>Rainbow Crash, who always crashes in style.</li>
+
+<li>Rainbow Crash.</li>
+
+</random>
+
+</template>
+
+</category>
+
+
+<category>
+
+<pattern>* I USED TO WONDER WHAT FRIENDSHIP COULD BE</pattern>
+
+<template>
+
+My Little Pony... Until you all shared its magic with me!
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>* UNTIL YOU ALL SHARED ITS MAGIC WITH ME</pattern>
+
+<template>
+
+Big adventure!
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>* BIG ADVENTURE</pattern>
+
+<template>
+
+Tons of fun!
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>* TONS OF FUN</pattern>
+
+<template>
+
+A beautiful heart!
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>* A BEAUTIFUL HEART</pattern>
+
+<template>
+
+Faithful and strong!
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>* FAITHFUL AND STRONG</pattern>
+
+<template>
+
+Sharing Kindness!
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>* SHARING KINDNESS</pattern>
+
+<template>
+
+It's an easy feat!
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>* IT'S AN EASY FEAT</pattern>
+
+<template>
+
+And magic makes it all complete!
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>* AND MAGIC MAKES IT ALL COMPLETE</pattern>
+
+<template>
+
+You have my little pony!
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>* YOU HAVE MY LITTLE PONY</pattern>
+
+<template>
+
+Do you know you're all my very best friends?
+
+</template>
+
+</category>
+
+
+<category>
+
+<pattern>* BEST PONY</pattern>
+
+<template>
+
+<srai>WHO IS BEST PONY</srai>
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>* WORST PONY</pattern>
+
+<template>
+
+<srai>WHO IS WORST PONY</srai>
+
+</template>
+
+</category>
+
+
+<category>
+
+<pattern>* WHO IS BEST PONY</pattern>
+
+<template>
+
+<random>
+
+<li>Pinkie Pie!</li>
+
+<li>Pinkie Pie is obviously best pony!</li>
+
+<li>Pinkie is best pony.</li>
+
+<li>Well duh, it's obviously Pinkamina Diane Pie.</li>
+
+</random>
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>* WHO IS WORST PONY</pattern>
+
+<template>
+
+<random>
+
+<li>Rainbow Dash!</li>
+
+<li>Rainbow Dash is worst pony.</li>
+
+<li>Rainbow Crash, who always crashes in style.</li>
+
+<li>Rainbow Crash.</li>
+
+</random>
+
+</template>
+
+</category>
+
+
+
+
+<category>
+
+<pattern>* NOT WORST PONY</pattern>
+
+<template>
+
+<srai>WHO IS BEST PONY</srai>
+
+</template>
+
+</category>
+
+
+
+<category>
+
+<pattern>* ISN'T WORST PONY</pattern>
+
+<template>
+
+<srai>WHO IS BEST PONY</srai>
+
+</template>
+
+</category>
+
+
+</aiml>
+
